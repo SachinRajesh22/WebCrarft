@@ -2,7 +2,7 @@
 A hangman game using HTML, CSS and Javascript
 
 How to play:
-1) Go to google chrome and enter https://github.com/SachinRajesh22/WebCrarft/edit/main/hangman/ -> will bring you to our main page of the game
+1) Go to google chrome and enter https://github.com/SachinRajesh22/WebCrarft//hangman/ -> will bring you to our main page of the game
 2) Upon arriving at our main game page, there will be 3 difficulty of levels: Easy, Medium and Hard
 3) U have to select either one and start the game by clicking on "Press Start", if none is selected, Medium will be the difficulty level.
 4) Then the game will bring you to the next page where you can then begin to guess a letter
@@ -14,4 +14,5 @@ How to play:
 10) Then there will be a prompt that allows you to choose whether you want to replay the game or exit to the main screen.
 
 Hope you enjoy playing our mini hangman game:) 
+
 
