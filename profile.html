@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT PROFILE COLUMN -->
+  <div class="profile">
+    <div class="avatar">👤</div>
+
+    <div class="field">
+      <label>Name:</label>
+      <input type="text" id="name" value="Alex Carter" disabled>
+    </div>
+
+    <div class="field">
+      <label>Email:</label>
+      <input type="text" id="email" value="alex@example.com" disabled>
+    </div>
+
+    <div class="field">
+      <label>About:</label>
+      <textarea id="details" disabled>
+Learner | Explorer
+Loves interactive English games
+      </textarea>
+    </div>
+
+    <div class="buttons">
+      <button onclick="editProfile()">Edit</button>
+      <button onclick="saveProfile()">Save</button>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="content">
+
+    <div class="chart-box">
+      <h3>Learning Progress</h3>
+      <div class="chart">
+        <div class="bar vocab"></div>
+        <div class="bar grammar"></div>
+        <div class="bar speaking"></div>
+      </div>
+    </div>
+
+    <div class="progress-box">
+      <h3>Completed</h3>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+        <span class="percent-text">75%</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<footer>
+        © sarvam maya
+    </footer>
+<script src="profile.js"></script>
+</body>
+</html>
