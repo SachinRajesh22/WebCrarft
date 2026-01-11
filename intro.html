@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WordCraft</title>
+
+    <!-- Google Font (Algerian-ish feel) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Background video fills the hero */
+        .hero .bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        /* Dark overlay layered above the video */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+
+            /* subtle cinematic glow */
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.15),
+                0 0 30px rgba(120,160,255,0.15);
+        }
+
+        .slogan {
+            font-size: 0.95rem;
+            letter-spacing: 0.2em;
+            text-transform: lowercase;
+            opacity: 0.85;
+        }
+
+        /* Theme-adaptive button variables and styles (darkish, pill/cylinder feel) */
+        :root{
+            --btn-bg: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+            --btn-border: rgba(255,255,255,0.06);
+            --btn-text: #ffffff;
+            --btn-shadow: 0 6px 18px rgba(0,0,0,0.45);
+            --btn-height: 56px;
+            --btn-padding: 0 36px;
+            --btn-accent: rgba(120,160,255,0.12);
+        }
+
+        /* Light theme: keep the button darkish but ensure readable contrast */
+        @media (prefers-color-scheme: light){
+            :root{
+                --btn-bg: linear-gradient(180deg, #111216, #0b0d0f);
+                --btn-border: rgba(255,255,255,0.06);
+                --btn-text: #f8fafc;
+                --btn-shadow: 0 8px 24px rgba(2,6,23,0.45);
+            }
+        }
+
+        /* Dark theme: slightly softer tones for harmony */
+        @media (prefers-color-scheme: dark){
+            :root{
+                --btn-bg: linear-gradient(180deg, #1f2933, #0f1720);
+                --btn-border: rgba(255,255,255,0.04);
+                --btn-text: #ffffff;
+                --btn-shadow: 0 8px 26px rgba(2,6,23,0.55);
+            }
+        }
+
+        /* Actions pinned to bottom center of hero for a 'bring down' effect */
+        .actions{
+            display:flex;
+            justify-content:center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: max(28px, env(safe-area-inset-bottom, 24px));
+            z-index: 3;
+            width: auto;
+            padding: 0 12px;
+        }
+
+        @media (max-width: 480px){
+            .actions{ bottom: max(18px, env(safe-area-inset-bottom, 12px)); }
+        }
+
+        .enter-btn{
+            appearance:none;
+            border:1px solid var(--btn-border);
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            height: var(--btn-height);
+            padding: var(--btn-padding);
+            border-radius: 999px; /* cylinder / pill */
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: var(--btn-shadow), inset 0 1px 0 rgba(255,255,255,0.02);
+            transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .enter-btn .arrow{
+            font-size: 1.05rem;
+            opacity: 0.9;
+            transform: translateX(0);
+            transition: transform .12s ease;
+        }
+
+        .enter-btn:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(2,6,23,0.65);
+        }
+        .enter-btn:active{
+            transform: translateY(-1px) scale(.995);
+        }
+
+        .enter-btn:focus{
+            outline: none;
+            box-shadow: 0 0 0 4px var(--btn-accent);
+            border-color: rgba(120,160,255,0.28);
+        }
+
+        @media (max-width: 480px){
+            :root { --btn-height:48px; --btn-padding: 0 22px; }
+            .title { font-size:2rem; }
+            .slogan { font-size:0.78rem; }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+                letter-spacing: 0.25em;
+            }
+            .slogan {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <video class="bg-video" autoplay muted loop playsinline>
+            <source src="robot.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="content">
+            <div class="title">Word Craft</div>
+            <div class="slogan">Crafting Words Through Play</div>
+        </div>
+        <div class="actions">
+    <a href="main.html">
+        <button class="enter-btn" aria-label="Enter Mayaverse" onclick="location.href='main.html'">
+            Enter <span class="arrow" aria-hidden="true">→</span>
+        </button>
+    </a>
+</div>
+
+        </div>
+    </section>
+
+</body>
+</html>
