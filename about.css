@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+
+header {
+    text-align: center;
+    margin-top: 40px;
+}
+
+header h1 {
+    font-size: 80px;          
+    font-weight: bold;
+    letter-spacing: 8px;     
+    margin-bottom: 10px;
+}
+
+
+.notes-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 60px auto;
+    width: 90%;
+}
+
+
+.note {
+    width: 220px;
+    height: 220px;
+    padding: 20px;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(255,255,255,0.2);
+    transform: rotate(-2deg);
+}
+
+
+.yellow { background-color: #ffeb3b; }
+.pink   { background-color: #ffb6c1; transform: rotate(3deg); }
+.blue   { background-color: #90caf9; transform: rotate(-4deg); }
+.green  { background-color: #a5d6a7; transform: rotate(2deg); }
+
+.note h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.note p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+
+footer {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: white;
+}
+
+.about-text {
+    text-align: center;
+    width: 70%;
+    margin: 20px auto 50px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.about-text strong {
+    font-size: 22px;
+}
+
+
+footer {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: white;
+}

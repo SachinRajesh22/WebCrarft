@@ -153,7 +153,7 @@ section .signin .content .form .inputBx input:valid ~ i{
 }
 
 section .signin .content .form .inputBx input[type="submit"],
-section .signin .content .form .inputBx button {
+section .signin .content .form .inputBx button{
     display: block;
     width: 100%;
     padding: 10px;
