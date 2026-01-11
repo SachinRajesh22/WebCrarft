@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WORDCRAFT | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ===== LOGIN GUARD ===== */
+    /* Prevent direct access */
+    body {
+      opacity: 1;
+    }
+
+    /* ===== CONTENT LAYER ===== */
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      width: 100%;
+      text-align: center;
+      font-size: clamp(4rem, 12vw, 9rem);
+      font-weight: 800;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    /* ===== FILL SECTION ===== */
+    .fill {
+      background: rgba(5, 10, 25, 0.92);
+      padding: 6rem 8vw;
+      min-height: 100vh;
+    }
+
+    /* ===== GALLERY HEADER ===== */
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-title {
+      font-size: 1.5rem;
+      letter-spacing: 0.3em;
+      opacity: 0.85;
+    }
+/* ===== TOP DOCK NAVBAR ===== */
+
+.top-dock ul {
+  display: flex;
+  gap: 60px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-dock button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.top-dock li:hover button {
+  transform: scale(1.35);
+  color: #f5c77a;
+}
+
+.top-dock li.active button {
+  color: #00fffc;
+  transform: scale(1.4);
+}
+
+    /* ===== SORT DROPDOWN ===== */
+    #sortGames {
+      background: transparent;
+      border: none;
+      color: #f5c77a;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      appearance: none;
+      outline: none;
+    }
+
+    #sortGames option {
+      background: #050a19;
+      color: #f5c77a;
+    }
+
+    /* ===== GAME GRID ===== */
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .game-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== GAME CARD ===== */
+    .game-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.4s ease, background 0.4s ease;
+      cursor: pointer;
+    }
+
+    .game-card:hover {
+      transform: scale(1.06);
+      background: rgba(255, 255, 255, 0.12);
+      z-index: 5;
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .game-info {
+      padding: 1rem;
+    }
+
+    .game-name {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .game-price {
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+
+    /* ===== HOVER ACTIONS ===== */
+    .game-actions {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: rgba(5, 10, 25, 0.75);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .game-card:hover .game-actions {
+      opacity: 1;
+    }
+
+    .game-actions button {
+      background: #f5c77a;
+      border: none;
+      color: #050a19;
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: transform 0.2s ease;
+    }
+
+    .game-actions button:hover {
+      transform: scale(1.08);
+    }
+/* ===== DOCK TOGGLE BUTTON ===== */
+.dock-toggle {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 20, 40, 0.85);
+  backdrop-filter: blur(12px);
+  color: #00fffc;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 44px;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.dock-toggle:hover {
+  transform: translateX(-50%) scale(1.15);
+}
+
+   /* ===== FOOTER ===== */
+.site-footer {
+  position: relative;
+  height: 260px;
+  background: url("banner.jpg") center/cover no-repeat;
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 10, 25, 0.85);
+}
+/* ===== TOP DOCK (HIDDEN) ===== */
+.top-dock {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  padding: 14px 40px;
+  background: rgba(5, 10, 25, 0.85);
+  backdrop-filter: blur(18px);
+  border-radius: 50px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.top-dock.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.top-dock ul {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-dock button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.top-dock li:hover button {
+  transform: scale(1.35);
+  color: #f5c77a;
+}
+
+.top-dock li.active button {
+  color: #00fffc;
+}
+
+  </style>
+
+
+  <!-- LOGIN STATE CHECK -->
+  <script>
+    if (localStorage.getItem("mayaverse_logged_in") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+
+<body>
+  <!-- CONTENT -->
+  <div class="content">
+    <!-- NAVBAR -->
+<!-- NAV TOGGLE BUTTON -->
+<div class="dock-toggle">⌄</div>
+
+<!-- HIDDEN DOCK -->
+<nav class="top-dock">
+  <ul>
+    <li class="active">
+      <button onclick="location.href='home.html'">Home</button>
+    </li>
+    
+      <button onclick="location.href='profile.html'">Profile</button>
+    </li>
+    <li>
+      <button onclick="location.href='about.html'">About</button>
+    </li>
+    <li>
+      <button onclick="location.href='login.html'">Quit</button>
+    </li>
+
+  </ul>
+</nav>
+
+
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>WORDCRAFT</h1>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="fill">
+
+      <div class="gallery-header">
+        <div class="gallery-title">LEARNING OBJECTIVES</div>
+      </div>
+
+      <div class="game-grid">
+
+  <div class="game-card" data-name="HANG MAN" >
+    <img src="game1.jpg" alt="HANG MAN">
+    <div class="game-actions">
+      <button onclick="buyGame('Grand Theft Auto V')">PLAY</button>
+    </div>
+    <div class="game-info">
+      <div class="game-name">HANG MAN</div>
+    </div>
+  </div>
+
+  <div class="game-card" data-name="WORD SCRAMBLE" data-price="1199">
+    <img src="game2.jpg" alt="WORD SCRAMBLE">
+    <div class="game-actions">
+      <button onclick="location.href='scramble.html'">PLAY</button>
+    </div>
+    <div class="game-info">
+      <div class="game-name">WORD SCRAMBLE</div>
+    </div>
+  </div>
+
+  </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-overlay"></div>
+    </footer>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.dock-toggle');
+    const dock = document.querySelector('.top-dock');
+    if (!toggle || !dock) return;
+
+    // Click to toggle
+    toggle.addEventListener('click', () => {
+      dock.classList.toggle('active');
+    });
+
+    // Hover behavior: show on hover, hide when leaving both toggle and dock
+    let hideTimeout;
+    const showDock = () => { clearTimeout(hideTimeout); dock.classList.add('active'); };
+    const scheduleHide = () => { hideTimeout = setTimeout(() => dock.classList.remove('active'), 250); };
+
+    toggle.addEventListener('mouseenter', showDock);
+    toggle.addEventListener('mouseleave', scheduleHide);
+    dock.addEventListener('mouseenter', showDock);
+    dock.addEventListener('mouseleave', scheduleHide);
+  });
+</script>
+
+</body>
+</html>

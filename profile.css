@@ -1,0 +1,143 @@
+•⁠  ⁠{
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT COLUMN */
+.profile {
+  width: 25%;
+  background: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+.avatar {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.profile input,
+.profile textarea {
+  width: 100%;
+  margin: 10px 0;
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+.buttons button {
+  margin: 5px;
+  padding: 8px 15px;
+  background: #ff9800;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* RIGHT SIDE */
+.content {
+  width: 75%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CHART */
+.chart-box {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.chart {
+  display: flex;
+  gap: 15px;
+  height: 150px;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 60px;
+  border-radius: 8px;
+}
+
+.vocab {
+  height: 80%;
+  background: #ff5252;
+}
+
+.grammar {
+  height: 60%;
+  background: #4caf50;
+}
+
+.speaking {
+  height: 70%;
+  background: #2196f3;
+}
+
+/* PROGRESS */
+.progress-box {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  position: relative;
+  background: #333;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.progress-fill {
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(to right, #ff9800, #4caf50);
+  border-radius: 20px;
+}
+
+.percent-text {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: white;
+}
+
+.field {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ff9800;
+}
