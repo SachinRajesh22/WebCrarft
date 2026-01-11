@@ -2,8 +2,8 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Animated Login Page</title>
-  <link rel="stylesheet" href="./login.css">
+  <title>Animated Signup Page</title>
+  <link rel="stylesheet" href="./signup.css">
 </head>
 <body>
     <section>
@@ -252,22 +252,32 @@
 
         <div class="signin">
             <div class="content">
-                <h2>Sign In</h2>
+                <h2>Sign Up</h2>
                 <div class="form">
+                    <div class="inputBx">
+                        <input type="text" required />
+                        <i>Full Name</i>
+                    </div>
                     <div class="inputBx">
                         <input type="text" required />
                         <i>Username</i>
                     </div>
                     <div class="inputBx">
                         <input type="password" required />
-                        <i>Password</i>
-                    </div>
-                    <div class="links">
-                        <a href="#">Forgot Password</a>
-                        <a href="signup.html">Signup</a>
+                        <i>New Password</i>
                     </div>
                     <div class="inputBx">
-                        <button type="button" onclick="location.href='home.html'">Sign In</button>
+                        <input type="password" required />
+                        <i>Re-Enter Password</i>
+                    </div>
+                    
+                    <div class="links">
+                        <a href="#">Already Have An Account</a>
+                        <a href="login.html">Sign In</a>
+                    </div>
+                    
+                    <div class="inputBx">
+                        <button type="button" onclick="location.href='login.html'">Sign Up</button>
                     </div>
                 </div>
             </div>
