@@ -30,10 +30,39 @@
       opacity: 1;
     }
 
+    /* ===== BACKGROUND VIDEO ===== */
+    .bg-media {
+      position: fixed;
+      inset: 0;
+      z-index: -2;           /* behind everything */
+      pointer-events: none;  /* allow clicks to pass through */
+      overflow: hidden;
+    }
+
+    .bg-media video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Dark overlay layered above the video */
+    .bg-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+      pointer-events: none;
+    }
+
     /* ===== CONTENT LAYER ===== */
     .content {
       position: relative;
-      z-index: 1;
+      z-index: 2; /* above overlay */
     }
 
     /* ===== HERO ===== */
@@ -306,6 +335,12 @@
 </head>
 
 <body>
+  <div class="bg-media">
+    <video autoplay muted loop playsinline>
+      <source src="back.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
   <!-- CONTENT -->
   <div class="content">
     <!-- NAVBAR -->
@@ -318,7 +353,7 @@
     <li class="active">
       <button onclick="location.href='home.html'">Home</button>
     </li>
-    <li></li>
+    <li>
       <button onclick="location.href='profile.html'">Profile</button>
     </li>
     <li>
@@ -350,7 +385,7 @@
   <div class="game-card" data-name="HANG MAN" >
     <img src="game1.jpg" alt="HANG MAN">
     <div class="game-actions">
-      <button onclick="buyGame('Grand Theft Auto V')">PLAY</button>
+      <button onclick="location.href='hangman/index.html'">PLAY</button>
     </div>
     <div class="game-info">
       <div class="game-name">HANG MAN</div>
